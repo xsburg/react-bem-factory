@@ -37,3 +37,25 @@ function Checkbox ({ checked, triState, className, disabled }) {
     }
 }
 ```
+
+What's been shown in the example is a complicated mixture of conditional modifiers, external mixin classes and BEM hierarchy. It could have been a nightmare without proper helpers. Just as a reminder, look at this snippet:
+
+```javascript
+<div className={`ui-checkbox ${checked ? 'ui-checkbox--checked' : ''} ${triState ? 'ui-checkbox--tri-state' : ''} ${disabled ? 'ui-checkbox--disabled' : ''} ${className ? className : ''}`}>
+    <div className={`ui-checkbox__mark ${checked ? 'ui-checkbox__mark--checked' : ''}`} />
+</div>);
+```
+
+The [Why](#why) section contains a more detailed explanation and comparison with other tools.
+
+## Usage
+
+## Why?
+
+## API
+
+## IDE Support
+
+
+
+
