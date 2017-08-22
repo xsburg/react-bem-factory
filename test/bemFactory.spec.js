@@ -55,4 +55,26 @@ describe('bemFactory', () => {
         // assert
         expect(className).toBe('block__element block__element--modifier1');
     });
+
+    it('should return qa builder', () => {
+        // arrange
+
+        // act
+        const qa = bemFactory.qa('block');
+        const qaId = qa();
+
+        // assert
+        expect(qaId).toBe('block');
+    });
+
+    it('should return themed builder', () => {
+        // arrange
+        const bem = bemFactory.block('button').themed('green');
+
+        // act
+        const className = bem();
+
+        // assert
+        expect(className).toBe('button--t-green');
+    });
 });
