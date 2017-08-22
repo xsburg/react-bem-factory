@@ -224,8 +224,39 @@ const bem1 = bemFactory.block('button').themed('green'); // bem1() will return '
 const bem2 = bemFactory.block('button--t-green'); // bem2() will return 'button--t-green'
 ```
 
+### `bemFactory.qa(blockName: string): ElementFactory`
+
+This method is just an alias to differentiate two different use cases: using BEM for class names and for QA-automation identifiers.
+
+Please refer to `bemFactory.block(blockName)` for more information.
+
 ## IDE Support
 
+Typing a lot of code like `className={bem('elementName')}` elements can be a bit annoying. Code snippets come to the rescue.
 
+Consider adding the following code snippets to feel how fast it is to style a component! (WebStorm syntax is used in these examples)
 
+```
+// shortcut: 'cc'
+// description: 'React BEM class declaration'
 
+className={bem('$ELEMENT_NAME$')}$END$
+```
+
+```
+// shortcut: 'el'
+// description: 'BEM element'
+
+&__$ELEMENT_NAME$ {
+    $END$
+}
+```
+
+```
+// shortcut: 'md'
+// description: 'BEM modifier'
+
+&--$MODIFIER_NAME$ {
+    $END$
+}
+```
