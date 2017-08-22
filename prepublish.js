@@ -1,4 +1,5 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
+/* eslint no-console: 0 */
 
 'use strict';
 
@@ -29,8 +30,9 @@ exec('git tag --contains HEAD', function (err, stdout, stderr) {
     }
     const version = matchResult[1];
 
-    console.log(`PrepareToPublishTask: There are tags on the build that match the version pattern. Updating package.json with version ${version}...`);
+    console.log(`PrepareToPublishTask: There is a tag that matches the version pattern. Updating package.json with version ${version}...`);
     let packageJson = JSON.parse(removeBom(fs.readFileSync(`${__dirname}/package.json`, 'utf8')));
     packageJson.version = version;
-    fs.writeFileSync(`${__dirname}/package.json`, JSON.stringify(packageJson, null, '    '), 'utf8');
+    fs.writeFileSync(`${__dirname}/package.json`, JSON.stringify(packageJson, null, '  '), 'utf8');
+    console.log(`Updated.`);
 });
