@@ -11,7 +11,7 @@
   "scripts": {
     "compile": "cross-env BABEL_ENV=rollup rollup -c",
     "test": "npm run test:code && npm run test:typescript",
-    "test:coverage": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test:coverage": "jest --coverage",
     "test:code": "jest",
     "test:typescript": "typings-tester --dir test/typescript",
     "prepublish": "node ./prepublish"
