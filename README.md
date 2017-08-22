@@ -1,4 +1,4 @@
-# react-bem-factory [![Build Status][ci-img]][ci]
+# react-bem-factory [![Build Status][ci-img]][ci] [![Coverage Status](https://coveralls.io/repos/github/xsburg/react-bem-factory/badge.svg?branch=master)](https://coveralls.io/github/xsburg/react-bem-factory?branch=master)
 
 This handy library provides helpers to style your React components using [BEM](https://en.bem.info/methodology/quick-start/) notation with **no pain**.
 
@@ -120,7 +120,7 @@ class UserList extends React.Component {
 
 Using this factory you are not restricted to creating only one builder per component, but it is recommended to follow the rule `1 block = 1 component` to enforce the component abstraction.
 
-Of cource there is the problem of shared CSS namespace, which however can be easily fixed by adding namespace prefixes. For example, common ui components like `Button`, `Icon` or `LoadingBar` are likely to be located within the same `ui` directory and could share the block prefix `ui-`. On a bigger scale, while developing a user management module of your application you can isolate all related component into `user-mgt-` prefix and so on. Keep in mind that prefixes are not necessarily to be short: you only have to type them twice (once in `bemFactory.block` and once in your SCSS/Less/Stylus file) and don't worry about the bundle size: gzip will take care of it.
+Of cource there is the problem of shared CSS namespace, which however can be easily fixed by adding namespace prefixes. For example, common ui components like `Button`, `Icon` or `LoadingBar` are likely to be located within the same `ui` directory and could share the block prefix `ui-`. On a bigger scale, while developing a user management module of your application you can isolate all related component into `user-mgt-` prefix and so on. Keep in mind that prefixes are not necessary to be short: you only have to type them twice (once in `bemFactory.block` and once in your SCSS/Less/Stylus file) and don't worry about the bundle size: gzip will take care of it.
 
 Moving on to the CSS, add a new SCSS (or Less etc.) file next to the component and describe the styling using the benefits of your favorite preprocessor:
 
@@ -163,7 +163,7 @@ import bemFactory from 'react-bem-factory';
 
 The method takes the `blockName` and returns the builder function that you can use to create elements of the same block.
 
-The interface if the builder function is defined like this:
+The interface of the builder function is defined like this:
 
 ```typescript
 interface ElementFactory {
@@ -173,7 +173,7 @@ interface ElementFactory {
 }
 ```
 
-The builder function uses method chaining to add mixin classes and the theme modifier (if necessarily) and produces the resulting class name string when called.
+The builder function uses method chaining to add mixin classes and theme modifier (if necessary) and produces the resulting class name string when called.
 
 Example:
 
