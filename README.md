@@ -63,12 +63,12 @@ You define the block name only twice: in your styles and in JavaScript. Then, yo
 There are other libraries that may help you with BEM and you might want to consider using them instead. But here are the main points in favour of this one:
 
 1. Clean and simple API without introducing new JSX attributes
-2. ESLint-friendly code (to implicit object->string conversions that ESLint and other checkers consider a mistake)
+2. ESLint-friendly code (no implicit object->string conversions that ESLint and other checkers consider a mistake)
 3. Catching common mistakes while running in debug mode
 4. Typescript typings
 5. Good test coverage
 
-To sum up, if you prefer to write predictable and maintainable code by sometimes restricting yourself in syntax, you might want to choose this library.
+To sum up, if you prefer to write predictable and maintainable code by sometimes restricting yourself from using confusing syntax, you might want to choose this library.
 
 Here are some of the alternatives that you might want to try out as well:
 
