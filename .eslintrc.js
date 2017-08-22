@@ -3,21 +3,31 @@ module.exports = {
     "extends": "airbnb",
     "env": {
         "browser": true,
-        "amd": true,
         "es6": true
     },
     "globals": {
         "describe": true,
         "it": true,
+        "expect": true,
         "beforeEach": true,
         "afterEach": true
     },
     "rules": {
-        'no-lonely-if': 0,
-        "class-methods-use-this": 0,
-        "no-mixed-operators": 0,
-        "no-continue": 0,
-        "no-else-return": 0,
+        'no-restricted-syntax': [
+            'error',
+            {
+                selector: 'ForOfStatement',
+                message: 'iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.',
+            },
+            {
+                selector: 'LabeledStatement',
+                message: 'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
+            },
+            {
+                selector: 'WithStatement',
+                message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
+            },
+        ],
         "no-extra-semi": 0,
         "quote-props": 0,
         "no-prototype-builtins": 0,

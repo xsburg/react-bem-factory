@@ -4,16 +4,20 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "browser": "dist/index.umd.js",
+  "typings": "src/index.d.ts",
   "repository": "https://github.com/xsburg/react-bem-factory",
   "author": "Stepan Burguchev <me@sburg.net>",
   "license": "MIT",
   "scripts": {
     "compile": "cross-env BABEL_ENV=rollup rollup -c",
-    "test": "jest"
+    "test": "npm run test:code && npm run test:typescript",
+    "test:code": "jest",
+    "test:typescript": "typings-tester --dir test/typescript",
+    "prepublish": "node ./prepublish"
   },
   "files": [
     "dist",
-    "src"
+    "src/index.d.ts"
   ],
   "devDependencies": {
     "@types/jest": "^20.0.6",
@@ -27,10 +31,15 @@
     "eslint": "^4.5.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0",
     "jest": "^20.0.4",
     "rollup": "^0.48.2",
     "rollup-plugin-babel": "^3.0.2",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.3.0"
+    "typescript": "^2.4.2",
+    "typings-tester": "^0.2.2"
+  },
+  "jest": {
+    "testRegex": "(/test/.*\\.spec.js)$"
   }
 }

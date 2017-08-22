@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - '6'
+  - '7'
+cache:
+  yarn: true
+  directories:
+    - node_modules
+script:
+  - npm test
+  - npm run compile
+after_script:
+  - npm run prepublish
+deploy:
+  - provider: npm
+    skip_cleanup: true
+    email: me@sburg.net
+    api_key:
+      secure: KG7kSrepTW01vh9ghvn0NrYk2iluAKqcX8cU/F2gQ+O2Qx+/7P/D1hoKdGGgBjMrG94fUQ7dhwyB3doNk1wQKUBX4XB/solmHGlI6fcz+nxXR6Aw6VFzfYL+iDE7+haa5JzlB97vn/5ayB2GxQYqhjqNC2Hrb/Tyk6XPa3iM3TPD0aisLjFuwzDUZL0DfTj3rVPONaHxD2YgebBsBr8jVq9Q+wKgzAxxD888oFt+4gNflTe1dz/6dujKbNoWO836neZwk4xZ30A0lrrbwXyNNLXgOwqhNNfJE0QCl5gI4cDS1x6RDkMobZw5133RUN7asH2hPHSc7HLe1P3J6noINgZ/xJ1CdVR1j7+q9YBJjalA2NKWUq5Xrn3ZIRKxFAOJxUn3IwD7EWMZHSvo553CztZJR4B+tA4r+DFgn/XAwWrXf5eIT51B+mMqpwouktmcbMj3ahF2sIe0iw28n+CCNuuGUbgVblZSdnyGj2SSH7RAL7g03uZWORP2IDiUFDSa7ggXpjuUqEUC2ua5/kee47cVpBbSdF4IXbAsSt6WsjMwPnI/ilKVloqRFk/vrakdVP4OhTxioQteomkW+edFm71crKFqtmwtw+f+a5Vs3nIrRufaOzvKJUiz3we+KX1Tbjwy8ksDHI2IBbJAo/MZoZ5ljcuD4eLmCCUh1OA/2Ro=
+    on:
+      tags: true
+      branch: master
+notifications:
+  email:
+    on_success: change
