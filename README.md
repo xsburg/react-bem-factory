@@ -46,9 +46,31 @@ You can see a complicated mixture of conditional modifiers, external mixin class
 </div>);
 ```
 
-Of course, having written the code like this you might come up with an idea to write a helper. And that's basically what this library is for. Below you will find futher explanation on how to use it in even more complex scenarios. For comparison with other alternatives and elaboration on design principles please refer to the [Why](#why) section.
+Of course, having written the code like this you might come up with an idea to write a helper. And that's basically what this library is for. Below you will find futher explanation on how to use it in even more complex scenarios. For comparison with other alternatives and more info on the design principles please refer to the [Why](#why) section.
 
 ## Why?
+
+The main idea behind this library is to create a simple but powerful approach to styling React components that wouldn't overly complicate things.
+
+There are basically three popular ways to style React components these days:
+
+1. CSS Modules
+2. Inline styles
+3. BEM styling
+
+They all work and choosing between them is a matter of personal preference.
+
+First of all, this library assumes that you don't want to write your styles in JavaScript or deal with generated class names that CSS Modules provide. In fact, the main idea of this library is that using BEM notation combined with a little bit of discipline is just as good in terms of beating global nature of CSS and even better.
+
+You define the block name only twice: in your styles and in JavaScript. Then, you take advantage of the preprocessor to create clean and maintainable CSS and use this library to declare class names in code.
+
+There are other libraries that may help you with BEM and you might want to consider using them as well. But here are the main points in favour of this one:
+
+1. Clean and simple API without introducing new JSX attributes.
+2. ESLint-friendly code
+3. Catching common mistakes while running in debug mode
+4. Typescript typings
+5. Good test coverage
 
 ## Getting Started
 
@@ -69,7 +91,7 @@ class UserList extends React.Component {
     // ...
 
     render () {
-        const { users } = this.props;
+        const { users, children } = this.props;
     
         return (
             <div className={bem()}>
@@ -86,9 +108,9 @@ class UserList extends React.Component {
 
 Using this factory you are not restricted to creating only one builder per component, but it is recommended to follow the rule `1 block = 1 component` to enforce the component abstraction.
 
-Following this approach you may find it difficult to maintain unique block names. To remedy the problem, consider adding namespace prefixes. For example, common ui components like `Button`, `Icon` or `LoadingBar` are likely to be located within the same `ui` directory and could share the block prefix `ui-`; developing a user management module of your application you can isolate all related component into `user-mgt-` prefix etc. Keep in mind that prefixes are not necessarily to be short: you only have to type them twice (once in `bemFactory.block` and once in your SCSS/Less/Stylus) and gzip will take care of the bundle size (repetitive blocks are compressed really well!).
+Of cource there is the problem of shared CSS namespace, which however can be easily fixed by adding namespace prefixes. For example, common ui components like `Button`, `Icon` or `LoadingBar` are likely to be located within the same `ui` directory and could share the block prefix `ui-`. On a bigger scale, developing a user management module of your application you can isolate all related component into `user-mgt-` prefix and so on. Keep in mind that prefixes are not necessarily to be short: you only have to type them twice (once in `bemFactory.block` and once in your SCSS/Less/Stylus) and don't worry about the bundle size: gzip will take care of it.
 
-Moving on to the CSS, add a new SCSS (or Less etc) file next to the component and describe the component using the benefits of your favorite preprocessor:
+Moving on to the CSS, add a new SCSS (or Less etc.) file next to the component and describe the styling using the benefits of your favorite preprocessor:
 
 ```SCSS
 .form-user-list {
