@@ -1,4 +1,4 @@
-# react-bem-factory [![npm](https://img.shields.io/npm/v/react-bem-factory.svg?style=flat-square)](https://www.npmjs.com/package/react-bem-factory) [![Travis](https://img.shields.io/travis/xsburg/react-bem-factory.svg?style=flat-square)](https://github.com/xsburg/react-bem-factory) [![Coveralls](https://img.shields.io/coveralls/xsburg/react-bem-factory.svg?style=flat-square)](https://coveralls.io/github/xsburg/react-bem-factory)
+# react-bem-factory [![npm](https://img.shields.io/npm/v/react-bem-factory.svg?style=flat-square)](https://www.npmjs.com/package/react-bem-factory) [![Travis](https://img.shields.io/travis/xsburg/react-bem-factory.svg?style=flat-square)](https://travis-ci.org/xsburg/react-bem-factory) [![Coveralls](https://img.shields.io/coveralls/xsburg/react-bem-factory.svg?style=flat-square)](https://coveralls.io/github/xsburg/react-bem-factory)
 
 This handy library provides helpers to style your React components using [BEM](https://en.bem.info/methodology/quick-start/) notation with **no pain**.
 
