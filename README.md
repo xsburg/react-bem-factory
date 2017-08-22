@@ -72,7 +72,16 @@ There are other libraries that may help you with BEM and you might want to consi
 4. Typescript typings
 5. Good test coverage
 
-To sum up, if you prefer to write predictable and maintainable code by sometimes restricting yourself in syntax, you might want to try this library.
+To sum up, if you prefer to write predictable and maintainable code by sometimes restricting yourself in syntax, you might want to choose this library.
+
+Here are some of the alternatives that you might want to try out as well:
+
+- [reBEM](https://github.com/rebem/rebem)
+- [react-bem-helper](https://github.com/marcohamersma/react-bem-helper)
+- [bem-classnames](https://github.com/pocotan001/bem-classnames)
+- [bem-cn](https://github.com/albburtsev/bem-cn)
+- [b_](https://github.com/azproduction/b_)
+
 
 ## Getting Started
 
