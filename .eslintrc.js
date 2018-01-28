@@ -6,11 +6,14 @@ module.exports = {
         "es6": true
     },
     "globals": {
+        "jest": true,
         "describe": true,
         "it": true,
         "expect": true,
         "beforeEach": true,
-        "afterEach": true
+        "beforeAll": true,
+        "afterEach": true,
+        "afterAll": true
     },
     "rules": {
         'no-restricted-syntax': [

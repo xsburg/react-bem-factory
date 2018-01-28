@@ -34,5 +34,5 @@ exec('git tag --contains HEAD', function (err, stdout, stderr) {
     let packageJson = JSON.parse(removeBom(fs.readFileSync(`${__dirname}/package.json`, 'utf8')));
     packageJson.version = version;
     fs.writeFileSync(`${__dirname}/package.json`, JSON.stringify(packageJson, null, '  '), 'utf8');
-    console.log(`Updated.`);
+    console.log('Updated.');
 });

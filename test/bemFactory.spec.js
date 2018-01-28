@@ -1,5 +1,10 @@
 import bemFactory from '../src/index';
 
+beforeEach(() => {
+    process.env.DEBUG = 'true';
+    global.console.warn = jest.fn();
+});
+
 describe('bemFactory', () => {
     it('should produce block without elements', () => {
         // arrange
@@ -76,5 +81,20 @@ describe('bemFactory', () => {
 
         // assert
         expect(className).toBe('button--t-green');
+    });
+
+    it('should warn when modifier name is undefined', () => {
+        // arrange
+        const bem = bemFactory.block('block');
+
+        // act
+        const className1 = bem('element', 'undefined');
+        const className2 = bem('element', { undefined: true });
+
+        // assert
+        expect(className1).toBe('block__element block__element--undefined');
+        expect(className2).toBe('block__element block__element--undefined');
+        // eslint-disable-next-line
+        expect(console.warn).toHaveBeenCalledTimes(2);
     });
 });
